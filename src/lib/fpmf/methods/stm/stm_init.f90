@@ -62,6 +62,7 @@ subroutine stm_init_dat
 
     fmode           = 0         ! 0 - disable STM, 1 - enabled STM
     fsample         = 500       ! output sample pariod in steps
+    fbeadid         = 0         ! read fbeadidfile is fbead == 0
     fbeadidfile     = 'beadid'  ! bead id file definition
     ftensor         = 2         ! 0 - unity, 1 - normal, 2 - massweighted
 
@@ -69,9 +70,6 @@ subroutine stm_init_dat
 
     fserverkey      = ''
     fserver         = ''
-    fpassword       = ''
-
-    use_key         = .false.
     client_id       = -1
 
     stmmode         = BMO_UNKNOWN   ! current STM mode, 0 - undefined (U)
@@ -117,13 +115,7 @@ subroutine stm_init_print_header
     write(PMF_OUT,120)
     write(PMF_OUT,120)  ' STM server options:'
     write(PMF_OUT,120)  ' ------------------------------------------------------'
-    if( use_key ) then
-    write(PMF_OUT,125)  ' Server key file name (fserverkey)            : ', trim(fserverkey)
-    else
-    write(PMF_OUT,125)  ' Server URL (fserver)                         : ', trim(fserver)
-    write(PMF_OUT,125)  ' Server password (fpassword)                  : ', trim(fpassword)
-    end if
-
+    write(PMF_OUT,125)  ' Server key file name (fserverkey)       : ', trim(fserverkey)
     write(PMF_OUT,120)
     write(PMF_OUT,120)  ' List of STM coordinates'
     write(PMF_OUT,120)  ' -------------------------------------------------------'

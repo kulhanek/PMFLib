@@ -16,7 +16,7 @@
 !
 !    You should have received a copy of the GNU Lesser General Public
 !    License along with this library; if not, write to the Free Software
-!    Foundation, Inc., 51 Franklin Street, Fifth Floor, 
+!    Foundation, Inc., 51 Franklin Street, Fifth Floor,
 !    Boston, MA  02110-1301  USA
 !===============================================================================
 
@@ -118,7 +118,7 @@ subroutine stm_cvs_cv_info(stm_item)
 145 format('    ** Name              : ',a)
 146 format('    ** Type              : ',a)
 150 format('    ** Current value     : ',E16.7,' [',A,']')
-180 format('    ** Force constant   : ',E16.9,' [',A,']')
+180 format('    ** Force constant    : ',E16.9,' [',A,']')
 
 end subroutine stm_cvs_cv_info
 

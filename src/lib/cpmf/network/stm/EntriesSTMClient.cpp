@@ -88,45 +88,6 @@ void PMF_PACKAGE cpmf_stm_client_set_coord_(FTINT* ret_st,
 //------------------------------------------------------------------------------
 //==============================================================================
 
-void PMF_PACKAGE cpmf_stm_client_reg_by_name_(char* fserver,char* fpassword,
-                                  FTINT* client_id,
-                                  FTINT* bead_id,
-                                  UFTINT fserver_len,
-                                  UFTINT fpassword_len)
-{
-// setup info about server
-    CSmallString   server_name;
-    CSmallString   server_password;
-
-    try {
-
-        // server name and protocol
-        server_name.SetFromFortran(fserver,fserver_len);
-        STMClient.ActionRequest.SetProtocolName("stm");
-        STMClient.ActionRequest.SetQualifiedName(server_name);
-
-        // password
-        server_password.SetFromFortran(fpassword,fpassword_len);
-        STMClient.ActionRequest.SetPassword(server_password);
-
-    } catch(...) {
-        *client_id = -1;
-        *bead_id = -1;
-        return;
-    }
-
-// register client
-    int sclient_id = 0;
-    int sbead_id = 0;
-    STMClient.RegisterClient(sclient_id,sbead_id);
-    *client_id = sclient_id;
-    *bead_id = sbead_id;
-}
-
-//==============================================================================
-//------------------------------------------------------------------------------
-//==============================================================================
-
 void PMF_PACKAGE cpmf_stm_client_reg_by_key_(char* fserverkey,char* fserver,
                                  FTINT* client_id,
                                  FTINT* bead_id,
@@ -155,7 +116,7 @@ void PMF_PACKAGE cpmf_stm_client_reg_by_key_(char* fserverkey,char* fserver,
 
 // register client
     int sclient_id = 0;
-    int sbead_id = 0;
+    int sbead_id = *bead_id;
     STMClient.RegisterClient(sclient_id,sbead_id);
     *client_id = sclient_id;
     *bead_id = sbead_id;

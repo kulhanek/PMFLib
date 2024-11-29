@@ -44,14 +44,16 @@ contains
 
 subroutine pmf_utils_open(unitnum, filename, mystatus)
 
+    use pmf_constants
+
     implicit none
-    integer           unitnum      ! logical unit number
-    character(*)      filename     ! file name
-    character(1)      mystatus     ! N - new, U - unknown, O - old, R - replace
+    integer                 unitnum      ! logical unit number
+    character(PMF_MAX_PATH) filename     ! file name
+    character(1)            mystatus     ! N - new, U - unknown, O - old, R - replace
     ! -----------------------------------------------
-    integer           ierr
-    character(7)      ustatus       ! status keyword
-    character(7)      uposition
+    integer                 ierr
+    character(7)            ustatus       ! status keyword
+    character(7)            uposition
     ! --------------------------------------------------------------------------
 
     if( mystatus .eq. 'N' ) then
@@ -77,7 +79,7 @@ subroutine pmf_utils_open(unitnum, filename, mystatus)
     position = uposition, form = 'FORMATTED', iostat = ierr)
 
     if( ierr .ne. 0 ) then
-        write(6, '(/,a,a)') 'Unable to open file: "',trim(filename),'"'
+        write(PMF_OUT, '(/,a,a)') 'Unable to open file: "',trim(filename),'"'
         call pmf_utils_exit(6, 1)
     endif
 
@@ -94,7 +96,7 @@ logical function pmf_utils_fexist(filename)
     use pmf_constants
 
     implicit none
-    character(*)      filename     ! file name
+    character(PMF_MAX_PATH)      filename     ! file name
     ! -----------------------------------------------
     integer           ierr
     ! --------------------------------------------------------------------------

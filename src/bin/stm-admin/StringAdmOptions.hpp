@@ -63,15 +63,17 @@ public:
                 NULL,                           /* default value */
                 true,                           /* is argument mandatory */
                 "stm://server[:port]/command",                        /* parametr name */
-                "It provides the action specification. The server is either the DNS name or IP address of the server or word 'serverkey' or 'key'. In the later case, the information about the server is read from the server key file. The port number, on which the server is listen, may be optionally provided. Finally, the command is administration task, which can be one of the following:\n"
-                "info                    = print information about registered clients\n"
+                "The server can be specified as either the DNS name, the IP address of the server, or the keyword 'serverkey' or 'key'. "
+                "In the latter case, the server information is read from the server key file. "
+                "The listening port number can be optionally provided. Finally, the command specifies an administrative task, which can be one of the following: \n"
+                "info                    = display information about registered clients\n"
                 "flush                   = save the accumulated STM path on the server side\n"
-                "get?file=output.path    = get the accumulated STM path and save it locally to the file output.path \n"
-                "release?id=bead_id      = unregister a client bound to the bead\n"
-                "terminate               = terminate server at the end of STM cycle\n"
-                "shutdown                = stop server execution\n"
-                "errors                  = prints errors from the server stack\n")   /* argument description */
-// description of options -----------------------------------------------------
+                "get?file=output.path    = retrieve the accumulated STM path and save it locally to the file 'output.path'\n"
+                "release?id=bead_id      = unregister a client associated with the specified bead ID\n"
+                "terminate               = terminate the server at the end of the STM cycle\n"
+                "shutdown                = stop the server execution\n"
+                "errors                  = display errors from the server stack\n")   /* argument description */
+                // description of options -----------------------------------------------------
     CSO_MAP_OPT(CSmallString,                           /* option type */
                 ServerKey,                        /* option name */
                 "server.key",                          /* default value */

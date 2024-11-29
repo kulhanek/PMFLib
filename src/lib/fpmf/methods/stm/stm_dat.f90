@@ -16,7 +16,7 @@
 !
 !    You should have received a copy of the GNU Lesser General Public
 !    License along with this library; if not, write to the Free Software
-!    Foundation, Inc., 51 Franklin Street, Fifth Floor, 
+!    Foundation, Inc., 51 Franklin Street, Fifth Floor,
 !    Boston, MA  02110-1301  USA
 !===============================================================================
 
@@ -33,17 +33,16 @@ implicit none
 integer                 :: fmode            ! 0 - disable STM, 1 - enabled STM
 integer                 :: fsample          ! output sample period in steps
 integer                 :: ftensor          ! 0 - unity, 1 - normal, 2 - massweighted
+integer                 :: fbeadid          ! bead id
 character(PMF_MAX_PATH) :: fbeadidfile      ! name of file containing bead id
 
 ! server part ------------------------------------------------------------------
 character(PMF_MAX_PATH) :: fserverkey           ! stm-server key file name
 character(PMF_MAX_PATH) :: fserver              ! stm-server name
-character(PMF_MAX_PATH) :: fpassword            ! stm-server password
 
 ! stm server -----------------
 integer                 :: bead_id              ! bead ID
 integer                 :: client_id            ! stm client ID
-logical                 :: use_key              ! is stm-server enabled?
 
 ! item list --------------------------------------------------------------------
 type CVTypeSTM

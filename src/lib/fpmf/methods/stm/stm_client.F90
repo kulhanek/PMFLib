@@ -16,7 +16,7 @@
 !
 !    You should have received a copy of the GNU Lesser General Public
 !    License along with this library; if not, write to the Free Software
-!    Foundation, Inc., 51 Franklin Street, Fifth Floor, 
+!    Foundation, Inc., 51 Franklin Street, Fifth Floor,
 !    Boston, MA  02110-1301  USA
 !===============================================================================
 
@@ -101,12 +101,7 @@ subroutine stm_client_register
 
     write(PMF_OUT,*)
     call pmf_utils_heading(PMF_OUT,'String method','=')
-
-    if( use_key ) then
-        write(PMF_OUT,15) trim(fserverkey)
-    else
-        write(PMF_OUT,10) trim(fserver)
-    end if
+    write(PMF_OUT,15) trim(fserverkey)
 
     write(PMF_OUT,*)
     write(PMF_OUT,20)
@@ -130,11 +125,7 @@ subroutine stm_client_register
     end do
 
     ! register client
-    if( use_key ) then
-        call cpmf_stm_client_reg_by_key(fserverkey,fserver,client_id,bead_id)
-    else
-        call cpmf_stm_client_reg_by_name(fserver,fpassword,client_id,bead_id)
-    end if
+    call cpmf_stm_client_reg_by_key(fserverkey,fserver,client_id,bead_id)
 
     if( client_id .le. 0 ) then
         write(PMF_OUT,30)
@@ -160,7 +151,6 @@ subroutine stm_client_register
 
     return
 
- 10 format(' STM Server          : ', A)
  15 format(' STM Server Key file : ', A)
  20 format(' Registering client on server, please wait .... ')
 
@@ -295,6 +285,7 @@ subroutine stm_client_exchange_data()
             write(STM_OUT,*)
             call pmf_exit_mdloop(PMF_OUT,1,'STM server requested client termination!') ! force MD loop termination
         case default
+            write(STM_OUT,95) stmmode
             call pmf_utils_exit(PMF_OUT,1,'Illegal STM mode after data exchange!')
     end select
 
@@ -315,6 +306,7 @@ subroutine stm_client_exchange_data()
 310 format('# [STM-CLIENT] Final production run (P)')
 320 format('# [STM-CLIENT] Client termination requested (T)')
 350 format('# [STM-CLIENT] Number of steps : ',I9)
+ 95 format('# [STM-CLIENT] STM Mode: ',I9)
 
 400 format(A9)
 410 format(1X,F15.8)

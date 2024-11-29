@@ -118,14 +118,14 @@ subroutine pmf_ctrl_print_default_stritem(sname,svalue)
     implicit none
     character(*)                        :: sname
     character(*)                        :: svalue
-    character(len=27)                   :: buff
+    character(len=37)                   :: buff
     ! --------------------------------------------------------------------------
 
     write(buff,5) trim(sname)
     write(PMF_OUT,15) adjustl(buff),trim(svalue)
 
- 5 format(A27)
-15 format(A27,' = ',A40,' (default)')
+ 5 format(A37)
+15 format(A37,' = ',A30,' (default)')
 
 end subroutine pmf_ctrl_print_default_stritem
 
@@ -142,7 +142,7 @@ subroutine pmf_ctrl_read_stritem(prm_fin,sname,svalue)
     type(PRMFILE_TYPE),intent(inout)    :: prm_fin
     character(*)                        :: sname
     character(*)                        :: svalue
-    character(len=27)                   :: buff
+    character(len=37)                   :: buff
     ! --------------------------------------------------------------------------
 
     write(buff,5) trim(sname)
@@ -152,9 +152,9 @@ subroutine pmf_ctrl_read_stritem(prm_fin,sname,svalue)
         write(PMF_OUT,15) adjustl(buff),trim(svalue)
     end if
 
- 5 format(A27)
-10 format(A27,' = ',A40)
-15 format(A27,' = ',A40,' (default)')
+ 5 format(A37)
+10 format(A37,' = ',A40)
+15 format(A37,' = ',A30,' (default)')
 
 end subroutine pmf_ctrl_read_stritem
 
