@@ -88,11 +88,12 @@ void PMF_PACKAGE cpmf_stm_client_set_coord_(FTINT* ret_st,
 //------------------------------------------------------------------------------
 //==============================================================================
 
-void PMF_PACKAGE cpmf_stm_client_reg_by_key_(char* fserverkey,char* fserver,
-                                 FTINT* client_id,
-                                 FTINT* bead_id,
-                                 UFTINT fserverkey_len,
-                                 UFTINT fserver_len)
+void PMF_PACKAGE cpmf_stm_client_reg_by_key_(char*  fserverkey,
+                                             char*  fserver,
+                                             FTINT* client_id,
+                                             FTINT* bead_id,
+                                             UFTINT fserverkey_len,
+                                             UFTINT fserver_len)
 {
 // setup info about server
     CSmallString   serverkey_name;
@@ -133,12 +134,12 @@ void PMF_PACKAGE cpmf_stm_client_reg_by_key_(char* fserverkey,char* fserver,
 //real(8)         :: rpmf(*)
 //real(8)         :: rfz(*)
 
-void PMF_PACKAGE cpmf_stm_client_exchange_data_(FTINT* ret_st,
-                                    FTINT* mode,
-                                    FTINT* isteps,
-                                    double* bpos,
-                                    double* rpmf,
-                                    double* rfz)
+void PMF_PACKAGE cpmf_stm_client_exchange_data_(FTINT*  ret_st,
+                                                FTINT*  mode,
+                                                FTINT*  isteps,
+                                                double* bpos,
+                                                double* rpmf,
+                                                double* rfz)
 {
 
     int listeps = *isteps;

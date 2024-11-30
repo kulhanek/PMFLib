@@ -80,7 +80,7 @@ type(CVTypeABP),allocatable :: ABPCVList(:)     ! definition of CVs
 type,extends(PMFAccuType)   :: ABPAccuType
     ! ABP data
     real(PMFDP)                     :: M            ! max value of pop
-    integer,pointer                 :: nsamples(:)  !
+    real(PMFDP),pointer             :: nsamples(:)  !
     real(PMFDP),pointer             :: dpop(:,:)    !
     real(PMFDP),pointer             :: pop(:)       ! without 1.0
     real(PMFDP),pointer             :: widths(:)    ! widths
@@ -91,7 +91,7 @@ type,extends(PMFAccuType)   :: ABPAccuType
     real(PMFDP)                     :: dnorm
 
     ! ABP data - incremental part for ABP-server
-    integer,pointer                 :: inc_nsamples(:)
+    real(PMFDP),pointer             :: inc_nsamples(:)
     real(PMFDP),pointer             :: inc_dpop(:,:)
     real(PMFDP),pointer             :: inc_pop(:)
 end type ABPAccuType

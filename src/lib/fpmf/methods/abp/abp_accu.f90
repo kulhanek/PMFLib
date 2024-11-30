@@ -158,7 +158,7 @@ subroutine abp_accu_read(iounit)
             select case( pmf_accu_get_key(keyline) )
             ! ------------------------------------
                 case('NSAMPLES')
-                    call pmf_accu_read_ibuf_B(abpaccu%PMFAccuType,iounit,keyline,abpaccu%nsamples)
+                    call pmf_accu_read_rbuf_B(abpaccu%PMFAccuType,iounit,keyline,abpaccu%nsamples)
             ! ------------------------------------
                 case('DPOP')
                     call pmf_accu_read_rbuf_M(abpaccu%PMFAccuType,iounit,keyline,abpaccu%dpop)
@@ -197,7 +197,7 @@ subroutine abp_accu_write(iounit)
 
     abpaccu%method = 'ABP'
     call pmf_accu_write_header(abpaccu%PMFAccuType,iounit)
-    call pmf_accu_write_ibuf_B(abpaccu%PMFAccuType,iounit,'NSAMPLES','AD',abpaccu%nsamples)
+    call pmf_accu_write_rbuf_B(abpaccu%PMFAccuType,iounit,'NSAMPLES','AD',abpaccu%nsamples)
     call pmf_accu_write_rbuf_M(abpaccu%PMFAccuType,iounit,'DPOP',    'AD',abpaccu%dpop)
     call pmf_accu_write_rbuf_B(abpaccu%PMFAccuType,iounit,'POP',     'AD',abpaccu%pop)
     call pmf_accu_write_rbuf_C(abpaccu%PMFAccuType,iounit,'WIDTHS',  'SA',abpaccu%widths)

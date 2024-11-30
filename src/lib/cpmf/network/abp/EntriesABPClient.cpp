@@ -169,24 +169,15 @@ void PMF_PACKAGE cpmf_abp_client_reg_by_key_(char* fserverkey,char* fserver,
 //==============================================================================
 
 void PMF_PACKAGE cpmf_abp_client_initial_data_(FTINT* ret_st,
-                                    FTINT*  nsamples,
+                                    double* nsamples,
                                     double* dpop,
                                     double* pop)
 {
-    CSimpleVector<double> l_nsamples;
-
-    l_nsamples.CreateVector(ABPClient.NumOfBins);
-
-    if(ABPClient.GetInitialData(l_nsamples,dpop,pop) == false) {
+    if(ABPClient.GetInitialData(nsamples,dpop,pop) == false) {
         ES_ERROR("unable to get initial data");
         *ret_st = 1;
         return;
     }
-
-    for(int i = 0; i < ABPClient.NumOfBins; i++){
-        nsamples[i] = l_nsamples[i];
-    }
-
     *ret_st = 0;
 }
 
@@ -195,26 +186,14 @@ void PMF_PACKAGE cpmf_abp_client_initial_data_(FTINT* ret_st,
 //==============================================================================
 
 void PMF_PACKAGE cpmf_abp_client_exchange_data_(FTINT* ret_st,
-                                    FTINT*  inc_nsamples,
+                                    double* inc_nsamples,
                                     double* inc_dpop,
                                     double* inc_pop)
 {
-    CSimpleVector<double> l_inc_nsamples;
-
-    l_inc_nsamples.CreateVector(ABPClient.NumOfBins);
-
-    for(int i = 0; i < ABPClient.NumOfBins; i++){
-        l_inc_nsamples[i] = inc_nsamples[i];
-    }
-
-    if(ABPClient.ExchangeData(l_inc_nsamples,inc_dpop,inc_pop) == false) {
+    if(ABPClient.ExchangeData(inc_nsamples,inc_dpop,inc_pop) == false) {
         ES_ERROR("unable to exchange data");
         *ret_st = 1;
         return;
-    }
-
-    for(int i = 0; i < ABPClient.NumOfBins; i++){
-        inc_nsamples[i] = l_inc_nsamples[i];
     }
 
     *ret_st = 0;

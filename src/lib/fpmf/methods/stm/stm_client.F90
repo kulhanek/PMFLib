@@ -47,14 +47,6 @@ interface
     end subroutine cpmf_stm_client_set_coord
 
     ! register client on server
-    subroutine cpmf_stm_client_reg_by_name(str1,str2,cid,bid)
-        character(*)    :: str1
-        character(*)    :: str2
-        integer         :: cid
-        integer         :: bid
-    end subroutine cpmf_stm_client_reg_by_name
-
-    ! register client on server
     subroutine cpmf_stm_client_reg_by_key(str1,str2,cid,bid)
         character(*)    :: str1
         character(*)    :: str2

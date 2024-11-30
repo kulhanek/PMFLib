@@ -77,8 +77,8 @@ int CABPClient::RegisterClient(void)
         Accu->UpdateNumOfBins();
 
         // create sections
-        Accu->CreateSectionData("NSAMPLES", "AD","I","B");
-        Accu->CreateSectionData("POP",      "AD","R","M");
+        Accu->CreateSectionData("NSAMPLES", "AD","R","B");
+        Accu->CreateSectionData("POP",      "AD","R","B");
         Accu->CreateSectionData("DPOP",     "AD","R","M");
 
         // set widths

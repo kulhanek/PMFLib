@@ -74,7 +74,7 @@ interface
     ! get initial data from server
     subroutine cpmf_abp_client_initial_data(ret_st,nisamples,idpop,ipop)
         integer         :: ret_st
-        integer         :: nisamples(*)
+        real(8)         :: nisamples(*)
         real(8)         :: idpop(*)
         real(8)         :: ipop(*)
     end subroutine cpmf_abp_client_initial_data
@@ -82,7 +82,7 @@ interface
     ! exchange data with server
     subroutine cpmf_abp_client_exchange_data(ret_st,nisamples,idpop,ipop)
         integer         :: ret_st
-        integer         :: nisamples(*)
+        real(8)         :: nisamples(*)
         real(8)         :: idpop(*)
         real(8)         :: ipop(*)
     end subroutine cpmf_abp_client_exchange_data
